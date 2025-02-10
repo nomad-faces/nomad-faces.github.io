@@ -1,0 +1,98 @@
+.container {
+    margin: 0;  /* Changed from margin: 50vh 0 */
+    padding-bottom: 50vh; /* Add padding at bottom for scrolling space */
+  }
+  
+  .scroll-container {
+    position: relative;
+    height: 100vh;
+  }
+  
+  .stickyHeader {
+    position: sticky;
+    top: 0;
+    padding: 20px;
+    color: white;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    transform: translateY(0);  /* Add initial transform state */
+    opacity: 1;  /* Add initial opacity state */
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);  /* Smoother easing */
+  }
+
+  .stickyHeader h1 {
+    font-size: 200px; 
+    margin: 0;
+  }
+  
+  .active {
+    opacity: 1;
+  }
+  
+  .inactive {
+    opacity: 0.2;
+  }
+  
+  .step-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+  
+  .step-content {
+    background-color: rgba(67, 217, 255, 0.5);
+    backdrop-filter: blur(8px);
+    padding: 32px;
+    margin: 0 32px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .step-content h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  
+  .step-content p {
+    font-size: 20px;
+  }
+  
+  .fixed-section {
+    width: 40%;
+    right: 5%;
+    bottom: 10%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(red, yellow);
+    transition: "opacity 1s ease";
+    border-radius: 10px;
+  }
+
+  .header-normal {
+    position: relative; 
+    padding: 20px;
+    color: white;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    transition: all 1.2s ease;
+  }
+
+  .header-normal h1 {
+    font-size: 200px;
+    margin: 0;
+  }

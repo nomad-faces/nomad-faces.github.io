@@ -1,98 +1,120 @@
+body {
+    overflow-x: hidden;
+}
+
 .container {
-    margin: 0;  /* Changed from margin: 50vh 0 */
-    padding-bottom: 50vh; /* Add padding at bottom for scrolling space */
-  }
-  
-  .scroll-container {
-    position: relative;
-    height: 100vh;
-  }
-  
-  .stickyHeader {
-    position: sticky;
-    top: 0;
+  margin: 0;
+  padding-bottom: 10px; 
+  position: relative;
+  min-height: 100vh;
+}
+
+.scroll-faces {
+  position: relative;
+  height: 100vh;
+}
+
+.face1 { 
     padding: 20px;
-    color: white;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    text-align: center;
-    transform: translateY(0);  /* Add initial transform state */
-    opacity: 1;  /* Add initial opacity state */
-    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);  /* Smoother easing */
-  }
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
 
-  .stickyHeader h1 {
-    font-size: 200px; 
-    margin: 0;
-  }
-  
-  .active {
-    opacity: 1;
-  }
-  
-  .inactive {
-    opacity: 0.2;
-  }
-  
-  .step-container {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    color: white;
-  }
-  
-  .step-content {
-    background-color: rgba(67, 217, 255, 0.5);
-    backdrop-filter: blur(8px);
-    padding: 32px;
-    margin: 0 32px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .step-content h2 {
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 16px;
-  }
-  
-  .step-content p {
-    font-size: 20px;
-  }
-  
-  .fixed-section {
-    width: 40%;
-    right: 5%;
-    bottom: 10%;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(red, yellow);
-    transition: "opacity 1s ease";
-    border-radius: 10px;
-  }
-
-  .header-normal {
-    position: relative; 
+.face2 {
     padding: 20px;
-    color: white;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    text-align: center;
-    transition: all 1.2s ease;
-  }
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.face3 {
+    padding: 20px;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
 
-  .header-normal h1 {
-    font-size: 200px;
-    margin: 0;
-  }
+.face-image {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Header styles */
+.stickyHeader, .header-normal {
+  width: 100%;
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  will-change: transform;
+}
+
+.stickyHeader {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transform: translateY(0);
+  font-size: 200px;
+  margin: 0;
+}
+
+.header-normal {
+  position: relative;
+  z-index: 1;
+  margin-bottom: -50vh;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 200px;
+  margin: 0;
+}
+
+.stickyHeader h1, .header-normal h1 {
+  font-size: 200px;
+  margin: 0;
+}
+
+/* Scroll section styles */
+
+.scroll-section {
+  position: relative;
+  z-index: 2;
+  padding-top: 100vh;
+}
+
+.context-section {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 50px;
+  margin: 20vh 32px 0 0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.context-text h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.context-text p {
+  font-size: 20px;
+}
+

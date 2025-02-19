@@ -17,6 +17,9 @@ function App() {
       <h1>Bubble Chart Visualization</h1>
       <button onClick={() => setDataType("countries")}>Show Countries</button>
       <button onClick={() => setDataType("ethnicities")}>Show Ethnicities</button>
+      <button onClick={() => setDataType("gender")}>Show Gender</button>
+      <button onClick={() => setDataType("education")}>Show Education</button>
+
       <div
         style={{
           backgroundColor: "white", // Set background color to white

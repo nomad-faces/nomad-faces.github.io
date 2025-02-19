@@ -30,12 +30,34 @@ const BubbleChart = ({ dataType }) => {
     { name: "Pacific", Value: 1, color: "#e377c2" },
   ];
 
+  const genderData = [
+    { name: "Men", Value: 83, color: "#1f77b4" },
+    { name: "Women", Value: 17, color: "#ff7f0e" },
+  ];
+
+  const educationData = [
+    { name: "High School", Value: 10, color: "#1f77b4" },
+    { name: "Bachelor's", Value: 53, color: "#ff7f0e" },
+    { name: "Master's", Value: 34, color: "#2ca02c" },
+    { name: "PhD", Value: 3, color: "#d62728" },
+  ];
+
   useEffect(() => {
-    const rawData = dataType === "countries" ? countryData : ethnicityData;
+    let rawData;
+    if (dataType === "countries") {
+      rawData = countryData;
+    } else if (dataType === "ethnicities") {
+      rawData = ethnicityData;
+    } else if (dataType === "gender") {
+      rawData = genderData;
+    } else if (dataType === "education") {
+      rawData = educationData;
+    }
+
     let bubbles = [];
 
     let index = 0;
-    rawData.forEach(d => {
+    rawData.forEach((d) => {
       for (let i = 0; i < d.Value; i++) {
         const row = Math.floor(index / gridSize);
         const col = index % gridSize;
@@ -60,42 +82,61 @@ const BubbleChart = ({ dataType }) => {
     svg.selectAll("*").remove(); // Clear previous drawings
 
     // Draw Bubbles
-    svg.selectAll("circle")
+    svg
+      .selectAll("circle")
       .data(data)
       .enter()
       .append("circle")
       .attr("r", radius)
-      .attr("fill", d => d.color)
-      .attr("cx", d => d.x)
-      .attr("cy", d => d.y);
+      .attr("fill", (d) => d.color)
+      .attr("cx", (d) => d.x)
+      .attr("cy", (d) => d.y);
 
     // Draw Legend
-    const legendData = dataType === "countries" ? countryData : ethnicityData;
-    const legend = svg.append("g")
+    const legendData =
+      dataType === "countries"
+        ? countryData
+        : dataType === "ethnicities"
+        ? ethnicityData
+        : dataType === "gender"
+        ? genderData
+        : educationData;
+
+    const legend = svg
+      .append("g")
       .attr("transform", `translate(${width - 200}, 50)`); // Position on the right side
 
-    legend.selectAll("circle")
+    legend
+      .selectAll("circle")
       .data(legendData)
       .enter()
       .append("circle")
       .attr("cx", 0)
       .attr("cy", (d, i) => i * 30)
       .attr("r", 10)
-      .attr("fill", d => d.color);
+      .attr("fill", (d) => d.color);
 
-    legend.selectAll("text")
+    legend
+      .selectAll("text")
       .data(legendData)
       .enter()
       .append("text")
       .attr("x", 20)
       .attr("y", (d, i) => i * 30 + 5)
-      .text(d => d.name)
+      .text((d) => d.name)
       .attr("font-size", "14px")
       .attr("fill", "#333");
   }, [data]);
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
       <svg id="bubble-chart" width={width} height={height}></svg>
     </div>
   );

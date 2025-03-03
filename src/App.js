@@ -1,6 +1,7 @@
 import Scrollytelling from "./scrollytelling.js";
 import Cards from "./cards.js";
 import './App.css';
+import Story from './Story.js';
 import BubbleChart from "./charts/BubbleChart.jsx";
 import TopDestinations from "./charts/TopDestinations.jsx";
 import React, { useState } from "react";
@@ -31,6 +32,7 @@ function App() {
       >
         <BubbleChart dataType={dataType} />
       </div>
+      <Story /> 
       <div>
       <h1>Top Cities for Digital Nomads</h1>
       <TopDestinations />

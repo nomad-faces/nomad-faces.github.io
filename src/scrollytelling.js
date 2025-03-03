@@ -20,7 +20,7 @@ const ScrollamaDemo = () => {
     <>
       <div
         style={{
-          position: "fixed",
+          position: "relative",
           top: 0,
           left: 0,
           width: "100%",
@@ -29,6 +29,7 @@ const ScrollamaDemo = () => {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           zIndex: -1,
+          overflow: "scroll"
         }}
       />
 
@@ -51,7 +52,6 @@ const ScrollamaDemo = () => {
             offset={0.8} 
             onStepEnter={onStepEnter} 
             onStepProgress={onStepProgress}
-            debug
           >
             <Step data={0}>
               <div className="scroll-faces">

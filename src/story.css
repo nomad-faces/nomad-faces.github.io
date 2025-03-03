@@ -1,0 +1,74 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-color: #fcfcf5;
+  overflow-y: scroll;
+}
+@font-face {
+  font-family: "Garamond";
+  src: url("Fonts/Garamond.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Garamonditalic";
+  src: url("Fonts/Garamond-Italic.ttf") format("truetype");
+  font-style: normal;
+}
+@font-face {
+  font-family: "Blackerbold";
+  src: url("Fonts/Blackerbold.ttf") format("truetype");
+  font-style: normal;
+}
+@font-face {
+  font-family: "InstrumentItalic";
+  src: url("Fonts/InstrumentItalic.ttf") format("truetype");
+  font-style: normal;
+}
+@font-face {
+  font-family: "Instrument";
+  src: url("Fonts/Instrument.ttf") format("truetype");
+  font-style: normal;
+}
+.headline {
+  width: 47vw;
+  margin: 0.7in auto 0.2in auto;
+  text-align: left;
+  font-family: "Instrument", serif;
+  font-size: 40px;
+  line-height: 1.1;
+  color: #000000;
+}
+.header-container {
+  width: 100%;
+  text-align: center;
+}
+.full-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  object-fit: cover; /* Ensures the image covers the visible area */
+  object-position: center top;
+  margin-bottom: 0.1in;
+  animation: fade-in 1s ease-in forwards;
+}
+.text-container {
+  width: 47vw;
+  margin: 0 auto 0.5in auto;
+  text-align: left;
+  color: #ffffff;
+}
+.body-text {
+  font-family: "Garamond", serif;
+  font-size: 17.6px;
+  color: #000000;
+  line-height: 1.3;
+}
+a {
+  color: #5c9a73;
+  text-decoration: underline;
+}

@@ -80,6 +80,38 @@ const BubbleChart = ({ dataType }) => {
 
     const svg = d3.select("#bubble-chart");
     svg.selectAll("*").remove(); // Clear previous drawings
+    const circles = svg.selectAll("circle").data(data, (d) => d.x + "-" + d.y);
+
+    // EXIT: Fade out old bubbles
+    circles
+      .exit()
+      .transition()
+      .duration(500)
+      .attr("r", 0)
+      .style("opacity", 0)
+      .remove();
+
+    // UPDATE: Move existing bubbles
+    circles
+      .transition()
+      .duration(500)
+      .attr("cx", (d) => d.x)
+      .attr("cy", (d) => d.y)
+      .attr("fill", (d) => d.color);
+
+    // ENTER: Fade in new bubbles
+    circles
+      .enter()
+      .append("circle")
+      .attr("r", 0)
+      .attr("fill", (d) => d.color)
+      .attr("cx", (d) => d.x)
+      .attr("cy", (d) => d.y)
+      .style("opacity", 0)
+      .transition()
+      .duration(1000)
+      .attr("r", radius)
+      .style("opacity", 1);
 
     // Draw Bubbles
     svg

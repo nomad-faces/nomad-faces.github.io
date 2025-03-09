@@ -11,36 +11,71 @@ const BubbleChart = ({ dataType }) => {
   const radius = 15;
 
   const countryData = [
-    { name: "United States", Value: 44, color: "#1f77b4" },
-    { name: "United Kingdom", Value: 7, color: "#ff7f0e" },
-    { name: "Canada", Value: 5, color: "#2ca02c" },
-    { name: "Russia", Value: 5, color: "#d62728" },
-    { name: "Germany", Value: 4, color: "#2ca02c" },
-    { name: "France", Value: 3, color: "#9467bd" },
-    { name: "Other", Value: 32, color: "#8c564b" },
+    {
+      name: "United States",
+      Value: 44,
+      color: "#4a4a4a",
+      group: "United States",
+    },
+    { name: "United Kingdom", Value: 7, color: "#a3a3a3", group: "Other" },
+    { name: "Canada", Value: 5, color: "#a3a3a3", group: "Other" },
+    { name: "Russia", Value: 5, color: "#a3a3a3", group: "Other" },
+    { name: "Germany", Value: 4, color: "#a3a3a3", group: "Other" },
+    { name: "France", Value: 3, color: "#a3a3a3", group: "Other" },
+    { name: "Other", Value: 32, color: "#a3a3a3", group: "Other" },
   ];
 
   const ethnicityData = [
-    { name: "White", Value: 59, color: "#1f77b4" },
-    { name: "Asian", Value: 13, color: "#ff7f0e" },
-    { name: "Latin", Value: 12, color: "#2ca02c" },
-    { name: "Black", Value: 7, color: "#d62728" },
-    { name: "Indian", Value: 5, color: "#9467bd" },
-    { name: "Middle Eastern", Value: 3, color: "#8c564b" },
-    { name: "Pacific", Value: 1, color: "#e377c2" },
+    { name: "White", Value: 59, color: "#4a4a4a", group: "White" },
+    { name: "Asian", Value: 13, color: "#a3a3a3", group: "Other" },
+    { name: "Latin", Value: 12, color: "#a3a3a3", group: "Other" },
+    { name: "Black", Value: 7, color: "#a3a3a3", group: "Other" },
+    { name: "Indian", Value: 5, color: "#a3a3a3", group: "Other" },
+    { name: "Middle Eastern", Value: 3, color: "#a3a3a3", group: "Other" },
+    { name: "Pacific", Value: 1, color: "#a3a3a3", group: "Other" },
   ];
 
   const genderData = [
-    { name: "Men", Value: 83, color: "#1f77b4" },
-    { name: "Women", Value: 17, color: "#ff7f0e" },
+    { name: "Men", Value: 83, color: "#4a4a4a", group: "Men" },
+    { name: "Women", Value: 17, color: "#a3a3a3", group: "Other" },
   ];
 
   const educationData = [
-    { name: "High School", Value: 10, color: "#1f77b4" },
-    { name: "Bachelor's", Value: 53, color: "#ff7f0e" },
-    { name: "Master's", Value: 34, color: "#2ca02c" },
-    { name: "PhD", Value: 3, color: "#d62728" },
+    {
+      name: "Bachelor's",
+      Value: 53,
+      color: "#4a4a4a",
+      group: "College and Above",
+    },
+    {
+      name: "Master's",
+      Value: 34,
+      color: "#4a4a4a",
+      group: "College and Above",
+    },
+    { name: "PhD", Value: 3, color: "#4a4a4a", group: "College and Above" },
+    ,
+    { name: "High School", Value: 10, color: "#a3a3a3", group: "High School" },
   ];
+
+  const getTooltipContent = (d) => {
+    let groupData;
+    let rawData;
+
+    if (dataType === "countries") {
+      rawData = countryData;
+    } else if (dataType === "ethnicities") {
+      rawData = ethnicityData;
+    } else if (dataType === "gender") {
+      rawData = genderData;
+    } else if (dataType === "education") {
+      rawData = educationData;
+    }
+
+    groupData = rawData.filter((item) => item.color === d.color);
+
+    return groupData.map((item) => `${item.name}: ${item.Value}%`).join("\n");
+  };
 
   useEffect(() => {
     let rawData;
@@ -65,6 +100,7 @@ const BubbleChart = ({ dataType }) => {
           value: d.Value,
           name: d.name,
           color: d.color,
+          group: d.group,
           x: col * cellSize + 50,
           y: row * cellSize + 50,
         });
@@ -80,6 +116,21 @@ const BubbleChart = ({ dataType }) => {
 
     const svg = d3.select("#bubble-chart");
     svg.selectAll("*").remove(); // Clear previous drawings
+
+    // Create tooltip div
+    const tooltip = d3
+      .select("body")
+      .append("div")
+      .attr("class", "tooltip")
+      .style("position", "absolute")
+      .style("visibility", "hidden")
+      .style("background-color", "white")
+      .style("border", "1px solid #ddd")
+      .style("border-radius", "4px")
+      .style("padding", "10px")
+      .style("font-size", "12px")
+      .style("white-space", "pre-line");
+
     const circles = svg.selectAll("circle").data(data, (d) => d.x + "-" + d.y);
 
     // EXIT: Fade out old bubbles
@@ -99,8 +150,8 @@ const BubbleChart = ({ dataType }) => {
       .attr("cy", (d) => d.y)
       .attr("fill", (d) => d.color);
 
-    // ENTER: Fade in new bubbles
-    circles
+    // ENTER: Fade in new bubbles with tooltip behavior
+    const newCircles = circles
       .enter()
       .append("circle")
       .attr("r", 0)
@@ -108,35 +159,52 @@ const BubbleChart = ({ dataType }) => {
       .attr("cx", (d) => d.x)
       .attr("cy", (d) => d.y)
       .style("opacity", 0)
+      .on("mouseover", function (event, d) {
+        tooltip.style("visibility", "visible").html(getTooltipContent(d));
+      })
+      .on("mousemove", function (event) {
+        tooltip
+          .style("top", event.pageY - 10 + "px")
+          .style("left", event.pageX + 10 + "px");
+      })
+      .on("mouseout", function () {
+        tooltip.style("visibility", "hidden");
+      });
+
+    newCircles
       .transition()
       .duration(1000)
       .attr("r", radius)
       .style("opacity", 1);
 
-    // Draw Bubbles
-    svg
-      .selectAll("circle")
-      .data(data)
-      .enter()
-      .append("circle")
-      .attr("r", radius)
-      .attr("fill", (d) => d.color)
-      .attr("cx", (d) => d.x)
-      .attr("cy", (d) => d.y);
-
     // Draw Legend
-    const legendData =
-      dataType === "countries"
-        ? countryData
-        : dataType === "ethnicities"
-        ? ethnicityData
-        : dataType === "gender"
-        ? genderData
-        : educationData;
+    const legendData = (() => {
+      if (dataType === "countries") {
+        return [
+          { name: "United States", color: "#4a4a4a" },
+          { name: "Other", color: "#a3a3a3" },
+        ];
+      } else if (dataType === "ethnicities") {
+        return [
+          { name: "White", color: "#4a4a4a" },
+          { name: "Other", color: "#a3a3a3" },
+        ];
+      } else if (dataType === "gender") {
+        return [
+          { name: "Men", color: "#4a4a4a" },
+          { name: "Other", color: "#a3a3a3" },
+        ];
+      } else {
+        return [
+          { name: "College and Above", color: "#4a4a4a" },
+          { name: "High School", color: "#a3a3a3" },
+        ];
+      }
+    })();
 
     const legend = svg
       .append("g")
-      .attr("transform", `translate(${width - 200}, 50)`); // Position on the right side
+      .attr("transform", `translate(${width - 200}, 50)`);
 
     legend
       .selectAll("circle")

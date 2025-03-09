@@ -77,6 +77,21 @@ const BubbleChart = ({ dataType }) => {
     return groupData.map((item) => `${item.name}: ${item.Value}%`).join("\n");
   };
 
+  const getTakeawayMessage = (type) => {
+    switch (type) {
+      case "countries":
+        return "Almost half the nomads are from the United States.";
+      case "ethnicities":
+        return "3 out of 5 nomads are White.";
+      case "gender":
+        return "Digital nomads are predominantly men, at over 80%.";
+      case "education":
+        return "9 out of 10 digital nomads have a college degree or higher.";
+      default:
+        return "";
+    }
+  };
+
   useEffect(() => {
     let rawData;
     if (dataType === "countries") {
@@ -226,6 +241,64 @@ const BubbleChart = ({ dataType }) => {
       .text((d) => d.name)
       .attr("font-size", "14px")
       .attr("fill", "#333");
+
+    // After drawing legend, add takeaway message
+    const takeaway = svg
+      .append("g")
+      .attr("transform", `translate(${width - 250}, ${height - 350})`);
+
+    takeaway
+      .append("rect")
+      .attr("width", 230)
+      .attr("height", "auto")
+      .attr("rx", 12)
+      .attr("ry", 12)
+      .attr("fill", "rgba(255, 255, 255, 0.95)")
+      .attr("stroke", "#ddd")
+      .attr("stroke-width", 1)
+      .attr("filter", "drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.1))");
+
+    const text = takeaway
+      .append("text")
+      .style("font-family", '"adobe-caslon-pro", serif')
+      .style("font-size", "18px")
+      .style("line-height", "1.4")
+      .style("fill", "#333")
+      .style("font-weight", "700")
+      .style("text-anchor", "middle");
+
+    // Split text into multiple lines if needed
+    const words = getTakeawayMessage(dataType).split(" ");
+    let line = "";
+    let lineNumber = 0;
+    const lineHeight = 28;
+
+    words.forEach((word) => {
+      const testLine = line + word + " ";
+      if (testLine.length * 9 > 200) {
+        text
+          .append("tspan")
+          .attr("x", 115)
+          .attr("dy", lineNumber === 0 ? 35 : lineHeight)
+          .text(line.trim());
+        line = word + " ";
+        lineNumber++;
+      } else {
+        line = testLine;
+      }
+    });
+    text
+      .append("tspan")
+      .attr("x", 115)
+      .attr("dy", lineNumber === 0 ? 35 : lineHeight)
+      .text(line.trim());
+
+    // Get the text bounding box and update the rectangle height
+    const textBBox = text.node().getBBox();
+    takeaway
+      .select("rect")
+      .attr("height", textBBox.height + 50)
+      .attr("y", textBBox.y - 25);
   }, [data]);
 
   return (

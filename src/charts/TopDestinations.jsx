@@ -2,6 +2,19 @@ import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import worldGeoJSON from "../datasets/countries.geo.json";
 
+const currencyMap = {
+  "United States": "USD",
+  Spain: "EUR",
+  Thailand: "THB",
+  "United Kingdom": "GBP",
+  Germany: "EUR",
+  Mexico: "MXN",
+  France: "EUR",
+  Italy: "EUR",
+  Portugal: "EUR",
+  Indonesia: "IDR",
+};
+
 const mostVisitedCountries = [
   "United States",
   "Spain",
@@ -22,6 +35,29 @@ const NomadMap = () => {
   const svgRef = useRef();
   const [tooltip, setTooltip] = useState(null);
   const [isZoomed, setIsZoomed] = useState(false);
+  const [exchangeRate, setExchangeRate] = useState(null);
+
+  const fetchExchangeRate = async (country) => {
+    const currency = currencyMap[country];
+    if (!currency || currency === "USD") {
+      setExchangeRate(null);
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `https://v6.exchangerate-api.com/v6/b396df306de672f7e9d92cfe/latest/USD`
+      );
+      const data = await response.json();
+      setExchangeRate({
+        rate: data.conversion_rates[currency],
+        currency: currency,
+      });
+    } catch (err) {
+      console.error("Failed to fetch exchange rate:", err);
+      setExchangeRate(null);
+    }
+  };
 
   useEffect(() => {
     const projection = d3
@@ -53,15 +89,15 @@ const NomadMap = () => {
       .attr("stroke-width", 1.5)
       .on("click", function (event, d) {
         if (mostVisitedCountries.includes(d.properties.name)) {
-          // If the country is already zoomed, reset the view
           if (isZoomed) {
             g.transition()
               .duration(750)
               .attr("transform", "translate(0,0) scale(1)");
             setIsZoomed(false);
             setTooltip(null);
+            setExchangeRate(null);
           } else {
-            // Set tooltip and zoom into the country
+            fetchExchangeRate(d.properties.name);
             setTooltip({
               x: event.clientX,
               y: event.clientY,
@@ -92,68 +128,102 @@ const NomadMap = () => {
   }, []);
 
   return (
-    <div style={{ position: "relative", width: width, margin: "0 auto" }}>
-      <svg
-        ref={svgRef}
-        width={width}
-        height={height}
-        style={{ borderRadius: "10px" }}
-      ></svg>
-      {tooltip && (
-        <div
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-            transform: "translate(-50%, -50%)",
-            background: "white",
-            padding: "20px",
-            borderRadius: "12px",
-            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
-            minWidth: "300px",
-            maxWidth: "400px",
-            zIndex: 1000,
-          }}
-        >
+    <div>
+      <div style={{ position: "relative", width: width, margin: "0 auto" }}>
+        <svg
+          ref={svgRef}
+          width={width}
+          height={height}
+          style={{ borderRadius: "10px" }}
+        ></svg>
+        {tooltip && (
           <div
             style={{
-              display: "flex",  
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: "15px",
+              position: "absolute",
+              left: "50%",
+              top: "50%",
+              transform: "translate(-50%, -50%)",
+              background: "white",
+              padding: "20px",
+              borderRadius: "12px",
+              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
+              minWidth: "300px",
+              maxWidth: "400px",
+              zIndex: 1000,
             }}
           >
-            <h3 style={{ margin: 0 }}>{tooltip.country}</h3>
-            <button
-              onClick={() => {
-                const g = d3.select(svgRef.current).select("g");
-                g.transition()
-                  .duration(750)
-                  .attr("transform", "translate(0,0) scale(1)");
-                setIsZoomed(false);
-                setTooltip(null);
-              }}
+            <div
               style={{
-                background: "none",
-                border: "none",
-                fontSize: "20px",
-                cursor: "pointer",
-                padding: "0 8px",
-                color: "#666",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "15px",
               }}
             >
-              ×
-            </button>
+              <h3 style={{ margin: 0 }}>{tooltip.country}</h3>
+              <button
+                onClick={() => {
+                  const g = d3.select(svgRef.current).select("g");
+                  g.transition()
+                    .duration(750)
+                    .attr("transform", "translate(0,0) scale(1)");
+                  setIsZoomed(false);
+                  setTooltip(null);
+                  setExchangeRate(null);
+                }}
+                style={{
+                  background: "none",
+                  border: "none",
+                  fontSize: "20px",
+                  cursor: "pointer",
+                  padding: "0 8px",
+                  color: "#666",
+                }}
+              >
+                ×
+              </button>
+            </div>
+            <div style={{ color: "#666" }}>
+              {exchangeRate ? (
+                <div style={{ marginBottom: "15px" }}>
+                  <div
+                    style={{
+                      fontSize: "1.1em",
+                      fontWeight: "600",
+                      color: "#4a4a4a",
+                      marginBottom: "5px",
+                    }}
+                  >
+                    Currency Exchange Rate
+                  </div>
+                  <div
+                    style={{
+                      padding: "10px",
+                      background: "#f8f8f8",
+                      borderRadius: "6px",
+                      display: "inline-block",
+                    }}
+                  >
+                    1 USD = {exchangeRate.rate.toFixed(2)}{" "}
+                    {exchangeRate.currency}
+                  </div>
+                </div>
+              ) : tooltip.country === "United States" ? (
+                <div style={{ marginBottom: "15px" }}>Base currency: USD</div>
+              ) : (
+                <div style={{ marginBottom: "15px" }}>
+                  Loading exchange rate...
+                </div>
+              )}
+              <p>
+                This is a sample description for {tooltip.country}. Lorem ipsum
+                dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
           </div>
-          <div style={{ color: "#666" }}>
-            <p>
-              This is a sample description for {tooltip.country}. Lorem ipsum
-              dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

@@ -49,7 +49,7 @@ const NomadMap = () => {
       .attr("fill", (d) =>
         mostVisitedCountries.includes(d.properties.name) ? "#6BBF8B" : "#FFFFFF"
       )
-      .attr("stroke", "#EFEEDC")
+      .attr("stroke", "#4a4a4a")
       .attr("stroke-width", 1.5)
       .on("click", function (event, d) {
         if (mostVisitedCountries.includes(d.properties.name)) {

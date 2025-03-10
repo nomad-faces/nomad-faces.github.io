@@ -7,32 +7,7 @@ body {
   background-color: #fcfcf5;
   overflow-y: scroll;
 }
-@font-face {
-  font-family: "Garamond";
-  src: url("Fonts/Garamond.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Garamonditalic";
-  src: url("Fonts/Garamond-Italic.ttf") format("truetype");
-  font-style: normal;
-}
-@font-face {
-  font-family: "Blackerbold";
-  src: url("Fonts/Blackerbold.ttf") format("truetype");
-  font-style: normal;
-}
-@font-face {
-  font-family: "InstrumentItalic";
-  src: url("Fonts/InstrumentItalic.ttf") format("truetype");
-  font-style: normal;
-}
-@font-face {
-  font-family: "Instrument";
-  src: url("Fonts/Instrument.ttf") format("truetype");
-  font-style: normal;
-}
+
 .headline {
   width: 47vw;
   margin: 0.7in auto 0.2in auto;

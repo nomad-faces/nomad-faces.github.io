@@ -1,0 +1,236 @@
+body {
+  overflow-x: hidden;
+}
+
+.story2-container {
+  margin: 20px;
+  position: relative;
+  min-height: 100vh;
+  font-family: "Garamond", serif; /* Set Garamond as the default font */
+  line-height: 1.4;
+  color: #000000;
+}
+
+.story2-content-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.scroller {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.sticky-container {
+  flex: 1;
+  position: relative;
+}
+
+.sticky-content {
+  position: sticky;
+  top: 100px; /* Re-add this crucial property to make sticky positioning work */
+  padding: 20px;
+}
+
+/* Common box container with absolutely identical dimensions */
+.stat-box,
+.image-box,
+.quote-box {
+  width: 500px; /* Increased from 400px */
+  height: 400px; /* Increased from 300px */
+  margin: 0 auto;
+  padding: 0; /* No padding on container level */
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  position: relative;
+  transition: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Inner content wrappers for each box type */
+.stat-content,
+.image-content,
+.quote-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Fix for quote content positioning */
+.quote-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Stat box specific styling */
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Image box specific styling */
+.sticky-image {
+  width: 100%;
+  height: 330px; /* Increased from 250px to fit bigger box */
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.image-caption {
+  height: 70px; /* Increased from 50px for bigger box */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Quote box specific styling */
+.quote-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px; /* Increased from 30px */
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+  text-align: left;
+  position: relative;
+}
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 0 20vh; /* Reduced from 80vh to 40vh to make gaps smaller */
+  padding: 30px;
+  min-height: 30vh;
+}
+
+.stat-title {
+  font-size: 28px; /* Increased from 24px */
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+  font-family: "Garamond", serif; /* Sans-serif font for stats */
+}
+
+.stat-number {
+  font-size: 90px; /* Increased from 72px */
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #0066cc;
+  line-height: 1;
+  font-family: "Garamond", serif;; /* Sans-serif font for stats */
+}
+
+.stat-description {
+  font-size: 20px; /* Increased from 18px */
+  color: #666;
+  max-width: 300px;
+  margin: 0 auto;
+  font-family:"Garamond", serif; /* Sans-serif font for stats */
+}
+
+.context-text p {
+  font-family: "Garamond", serif;
+  font-size: 17.6px;
+  color: #000000;
+  line-height: 1.3;
+
+  justify-content: left;
+}
+
+/* Restore quote mark styling */
+.quote-mark {
+  font-size: 120px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  color: rgba(0, 102, 204, 0.1);
+  font-family: Georgia, serif;
+  z-index: 0;
+}
+
+/* Restore quote text styling */
+.quote-text {
+  font-size: 28px;
+  line-height: 1.4;
+  font-style: italic;
+  color: #333;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  padding: 0 10px;
+  text-align: left;
+  max-width: 100%;
+}
+
+/* Restore quote attribution styling */
+.quote-attribution {
+  font-size: 18px;
+  color: #666;
+  text-align: right;
+  font-weight: 600;
+  align-self: flex-end;
+}
+
+/* Center stat box content */
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.headline {
+  width: 47vw;
+  margin: 0.7in auto 0.2in auto;
+  text-align: left;
+  font-family: "Instrument", serif;
+  font-size: 40px;
+  line-height: 1.1;
+  color: #000000;
+}
+
+.header-container {
+  width: 100%;
+  text-align: center;
+}
+
+.text-container {
+  width: 47vw;
+  margin: 0 auto 0.5in auto;
+  text-align: left;
+}
+
+.body-text {
+  font-family: "Garamond", serif;
+  font-size: 17.6px;
+  color: #000000;
+  line-height: 1.5;
+}
+
+a {
+  color: #5c9a73;
+  text-decoration: underline;
+}

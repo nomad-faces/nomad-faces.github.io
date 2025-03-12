@@ -9,6 +9,10 @@ body {
   min-height: 100vh;
 }
 
+.container h1 {
+  font-size: 65px;
+}
+
 .scroll-faces {
   position: relative;
   height: 100vh;

@@ -17,7 +17,7 @@ const ScrollamaDemo = () => {
   return (
     <div>
       <div className="header-container">
-        <h1 className="headline">The Digital Nomad Dilemma</h1>
+        <h1 className="headline">A New Wave of Gentrification</h1>
       </div>
       <div className="text-container">
         <p className="body-text">
@@ -36,10 +36,14 @@ const ScrollamaDemo = () => {
           The digital nomad boom, once hailed as a revolution in work-life
           balance, is fast becoming a growing force accelerating economic
           displacement. By earning in stronger currencies while spending in
-          weaker ones, digital nomads are inadvertently driving up the cost of
-          living, pricing out locals and shifting the economic landscape to
-          cater to short-term, high-spending visitors rather than long-term
-          residents.
+          weaker ones, digital nomads are fast driving up the cost of living,
+          pricing out locals and shifting the economic landscape to cater to
+          short-term, high-spending visitors rather than long-term residents.
+          <br />
+          <br />
+          According to Magaloni, the disproportionate purchasing power of nomads
+          can significantly influence local economies, often to the detriment of
+          the very communities that make these destinations desirable.
         </p>
       </div>
     </div>

@@ -1,19 +1,11 @@
-* {
-  font-family: "Garamond";
-}
-
-
 .App {
   text-align: center;
-  font-family: "Garamond", serif;
 }
-
 @font-face {
   font-family: "Garamond";
-  src: url("./Fonts/Garamond.ttf") format("truetype");
+  src: url("Fonts/Garamond.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
   font-family: "Garamonditalic";
@@ -60,13 +52,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-.headline,
-h1.headline {
-  font-family: "Instrument", serif;
-}
-
-.force-garamond {
-  font-family: "Garamond", "EB Garamond", Georgia, serif !important;
 }

@@ -204,6 +204,17 @@ const Age = () => {
       .style("font-size", "16px")
       .text("Percentage of Digital Nomads");
 
+    // Add source text at the bottom right
+    svg
+      .append("text")
+      .attr("x", width - 40)
+      .attr("y", height - 2)
+      .attr("text-anchor", "end")
+      .style("font-family", '"adobe-caslon-pro", serif')
+      .style("font-size", "12px")
+      .style("fill", "#666")
+      .text("Data as of February 2025. Source: nomads.com");
+
     return () => {
       tooltip.remove(); // Cleanup tooltip when component unmounts
     };

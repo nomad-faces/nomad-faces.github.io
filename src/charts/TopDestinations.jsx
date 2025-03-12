@@ -36,6 +36,7 @@ const NomadMap = () => {
   const [tooltip, setTooltip] = useState(null);
   const [isZoomed, setIsZoomed] = useState(false);
   const [exchangeRate, setExchangeRate] = useState(null);
+  const [showInstructions, setShowInstructions] = useState(true);
 
   const fetchExchangeRate = async (country) => {
     const currency = currencyMap[country];
@@ -125,6 +126,17 @@ const NomadMap = () => {
           }
         }
       });
+
+    // Add source text at the bottom right
+    svg
+      .append("text")
+      .attr("x", width - 20)
+      .attr("y", height - 8)
+      .attr("text-anchor", "end")
+      .style("font-family", '"adobe-caslon-pro", serif')
+      .style("font-size", "12px")
+      .style("fill", "#666")
+      .text("Data as of February 2025. Source: nomads.com");
   }, []);
 
   return (
@@ -136,6 +148,47 @@ const NomadMap = () => {
           height={height}
           style={{ borderRadius: "10px" }}
         ></svg>
+
+        {showInstructions && (
+          <div
+            style={{
+              position: "absolute",
+              left: "50%",
+              top: "50%",
+              transform: "translate(-50%, -50%)",
+              background: "rgba(255, 255, 255, 0.95)",
+              padding: "20px",
+              borderRadius: "12px",
+              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
+              maxWidth: "400px",
+              textAlign: "center",
+              zIndex: 1000,
+            }}
+          >
+            <button
+              onClick={() => setShowInstructions(false)}
+              style={{
+                position: "absolute",
+                right: "10px",
+                top: "10px",
+                background: "none",
+                border: "none",
+                fontSize: "20px",
+                cursor: "pointer",
+                color: "#666",
+              }}
+            >
+              ×
+            </button>
+            <h3 style={{ margin: "10px 10px 10px 10px", color: "#333" }}>
+              Top 10 Most Visited Countries by Digital Nomads, 2025
+            </h3>
+            <p style={{ margin: 0, color: "#666" }}>
+              Click on a highlighted country to explore currency rates
+            </p>
+          </div>
+        )}
+
         {tooltip && (
           <div
             style={{

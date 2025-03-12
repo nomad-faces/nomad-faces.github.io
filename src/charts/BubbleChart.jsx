@@ -277,7 +277,7 @@ const BubbleChart = ({ dataType }) => {
       .append("text")
       .style("font-family", '"adobe-caslon-pro", serif')
       .style("font-size", "18px")
-      .style("line-height", "1.4")
+      .style("line-height", "1")
       .style("fill", "#333")
       .style("font-weight", "700");
 
@@ -312,6 +312,17 @@ const BubbleChart = ({ dataType }) => {
       .attr("y", 45 + lineNumber * lineHeight)
       .attr("text-anchor", "middle")
       .text(line.trim());
+
+    // After the takeaway message, add source text
+    const sourceText = svg
+      .append("text")
+      .attr("x", width - 10)
+      .attr("y", height - 5)
+      .attr("text-anchor", "end")
+      .style("font-family", '"adobe-caslon-pro", serif')
+      .style("font-size", "12px")
+      .style("fill", "#666")
+      .text("Data as of February 2025. Source: nomads.com");
   }, [data]);
 
   return (

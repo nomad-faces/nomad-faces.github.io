@@ -21,7 +21,6 @@ const CurrencyComparison = () => {
   useEffect(() => {
     const fetchRates = async () => {
       try {
-        // Note: Replace 'YOUR_API_KEY' with your actual API key from exchangerate-api.com
         const response = await fetch(
           "https://v6.exchangerate-api.com/v6/b396df306de672f7e9d92cfe/latest/USD"
         );

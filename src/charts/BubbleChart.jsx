@@ -27,47 +27,47 @@ const BubbleChart = ({ dataType }) => {
     {
       name: "United States",
       Value: 44,
-      color: "#7bc0ec",
+      color: "#e92838",
       group: "United States",
     },
-    { name: "United Kingdom", Value: 7, color: "#32925B", group: "Other" },
-    { name: "Canada", Value: 5, color: "#32925B", group: "Other" },
-    { name: "Russia", Value: 5, color: "#32925B", group: "Other" },
-    { name: "Germany", Value: 4, color: "#32925B", group: "Other" },
-    { name: "France", Value: 3, color: "#32925B", group: "Other" },
-    { name: "Other", Value: 32, color: "#32925B", group: "Other" },
+    { name: "United Kingdom", Value: 7, color: "#7bc0ec", group: "Other" },
+    { name: "Canada", Value: 5, color: "#7bc0ec", group: "Other" },
+    { name: "Russia", Value: 5, color: "#7bc0ec", group: "Other" },
+    { name: "Germany", Value: 4, color: "#7bc0ec", group: "Other" },
+    { name: "France", Value: 3, color: "#7bc0ec", group: "Other" },
+    { name: "Other", Value: 32, color: "#7bc0ec", group: "Other" },
   ];
 
   const ethnicityData = [
-    { name: "White", Value: 59, color: "#7bc0ec", group: "White" },
-    { name: "Asian", Value: 13, color: "#32925B", group: "Other" },
-    { name: "Latin", Value: 12, color: "#32925B", group: "Other" },
-    { name: "Black", Value: 7, color: "#32925B", group: "Other" },
-    { name: "Indian", Value: 5, color: "#32925B", group: "Other" },
-    { name: "Middle Eastern", Value: 3, color: "#32925B", group: "Other" },
-    { name: "Pacific", Value: 1, color: "#32925B", group: "Other" },
+    { name: "White", Value: 59, color: "#e92838", group: "White" },
+    { name: "Asian", Value: 13, color: "#7bc0ec", group: "Other" },
+    { name: "Latin", Value: 12, color: "#7bc0ec", group: "Other" },
+    { name: "Black", Value: 7, color: "#7bc0ec", group: "Other" },
+    { name: "Indian", Value: 5, color: "#7bc0ec", group: "Other" },
+    { name: "Middle Eastern", Value: 3, color: "#7bc0ec", group: "Other" },
+    { name: "Pacific", Value: 1, color: "#7bc0ec", group: "Other" },
   ];
 
   const genderData = [
-    { name: "Men", Value: 83, color: "#7bc0ec", group: "Men" },
-    { name: "Women", Value: 17, color: "#32925B", group: "Other" },
+    { name: "Men", Value: 83, color: "#e92838", group: "Men" },
+    { name: "Women", Value: 17, color: "#7bc0ec", group: "Other" },
   ];
 
   const educationData = [
     {
       name: "Bachelor's",
       Value: 53,
-      color: "#7bc0ec",
+      color: "#e92838",
       group: "College and Above",
     },
     {
       name: "Master's",
       Value: 34,
-      color: "#7bc0ec",
+      color: "#e92838",
       group: "College and Above",
     },
-    { name: "PhD", Value: 3, color: "#7bc0ec", group: "College and Above" },
-    { name: "High School", Value: 10, color: "#32925B", group: "High School" },
+    { name: "PhD", Value: 3, color: "#e92838", group: "College and Above" },
+    { name: "High School", Value: 10, color: "#7bc0ec", group: "High School" },
   ];
 
   const getTooltipContent = (d) => {
@@ -211,23 +211,23 @@ const BubbleChart = ({ dataType }) => {
     const legendData = (() => {
       if (dataType === "countries") {
         return [
-          { name: "United States", color: "#7bc0ec" },
-          { name: "Other", color: "#32925B" },
+          { name: "United States", color: "#e92838" },
+          { name: "Other", color: "#7bc0ec" },
         ];
       } else if (dataType === "ethnicities") {
         return [
-          { name: "White", color: "#7bc0ec" },
-          { name: "Other", color: "#32925B" },
+          { name: "White", color: "#e92838" },
+          { name: "Other", color: "#7bc0ec" },
         ];
       } else if (dataType === "gender") {
         return [
-          { name: "Men", color: "#7bc0ec" },
-          { name: "Women", color: "#32925B" },
+          { name: "Men", color: "#e92838" },
+          { name: "Women", color: "#7bc0ec" },
         ];
       } else {
         return [
-          { name: "College and Above", color: "#7bc0ec" },
-          { name: "High School", color: "#32925B" },
+          { name: "College and Above", color: "#e92838" },
+          { name: "High School", color: "#7bc0ec" },
         ];
       }
     })();

@@ -60,7 +60,7 @@ function App() {
 
       <Story />
       <div>
-        <h1>Top Cities for Digital Nomads</h1>
+        <h1>Top Destinations for Digital Nomads</h1>
         <TopDestinations />
       </div>
     </div>

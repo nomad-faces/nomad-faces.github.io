@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import "./scrollytelling.css";
-import background from "./assets/Illustration_1.JPG";
-import face1 from "./assets/Icon_1.png"; /* Fix the import path by using relative path */
-import face2 from "./assets/Icon_2.png";
-import face3 from "./assets/Icon_3.png";
+import background from "./Assets/Illustration_1.JPG";
+import face1 from "./Assets/Icon_1.png"; /* Fix the import path by using relative path */
+import face2 from "./Assets/Icon_2.png";
+import face3 from "./Assets/Icon_3.png";
 
 const ScrollamaDemo = () => {
   const [currentStepIndex, setCurrentStepIndex] = useState(null);

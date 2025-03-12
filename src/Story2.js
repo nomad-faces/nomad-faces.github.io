@@ -1,6 +1,6 @@
 import React from "react";
 import "./story2.css";
-import viz1 from "./assets/Miniviz_1.png";
+import viz1 from "./Assets/Miniviz_1.png";
 
 const Story2 = () => {
   return (

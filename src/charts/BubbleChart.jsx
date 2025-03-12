@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import * as d3 from "d3";
-import Icon1 from "../assets/Icon_1.png";
-import Icon2 from "../assets/Icon_2.png";
-import Icon3 from "../assets/Icon_3.png";
-import Icon4 from "../assets/Icon_4.png";
+import Icon1 from "../Assets/Icon_1.png";
+import Icon2 from "../Assets/Icon_2.png";
+import Icon3 from "../Assets/Icon_3.png";
+import Icon4 from "../Assets/Icon_4.png";
 
 const BubbleChart = ({ dataType }) => {
   const [data, setData] = useState([]);

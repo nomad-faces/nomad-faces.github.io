@@ -1,6 +1,7 @@
 import React from "react";
 import "./story2.css";
 import viz1 from "./Assets/Miniviz_1.png";
+import viz2 from "./Assets/Miniviz_2.png";
 
 const Story2 = () => {
   return (
@@ -25,9 +26,7 @@ const Story2 = () => {
           </div>
           <div className="intro-image">
             <img
-              src={
-                viz1
-              } 
+              src={viz1}
               alt="Housing effect visualization"
               className="intro-viz"
             />
@@ -60,11 +59,14 @@ const Story2 = () => {
           The linguistic shift of locals from native languages to English has
           also had broader implications, subtly reshaping social dynamics and
           economic opportunities as traditional dialects and cultural
-          expressions fade from daily life. For many locals around the world,
-          these changes have created a sense of detachment from their own
-          cities, according to Magaloni. "While their original cultural and
-          social identity is not erased outright, it is gradually marginalized
-          in favor of a more globally palatable version," Magaloni said.
+          expressions fade from daily life.
+          <br />
+          <br />
+          For many locals around the world, these changes have created a sense
+          of detachment from their own cities, according to Magaloni. "While
+          their original cultural and social identity is not erased outright, it
+          is gradually marginalized in favor of a more globally palatable
+          version," Magaloni said.
         </p>
 
         <div className="header-container">
@@ -72,59 +74,76 @@ const Story2 = () => {
             Solutions for a sustainable nomad economy
           </h1>
         </div>
+
         <div className="text-container">
           <p className="body-text">
-            In the years following the digital nomad boom due to the COVID-19
-            pandemic, governments have faced the challenge of managing its
-            impact in a way that encourages sustainable coexistence with local
-            communities. Some cities have already begun implementing measures to
-            preserve their cultural identity while still accommodating the
-            benefits of global mobility.
+            In the years following the digital nomad boom triggered by the
+            COVID-19 pandemic, governments have faced the challenge of managing
+            its impact in a way that encourages sustainable coexistence with
+            local communities. Some cities have already begun implementing
+            measures to preserve their cultural identity while still
+            accommodating the benefits of global mobility.
+          </p>
+        </div>
+      </div>
+
+      <div className="top-section">
+        <div className="intro-content-wrapper">
+          <div className="intro-text">
+            <p>
+              In 2023, the Portuguese government imposed a freeze on new
+              short-term rental permits to curb the displacement of local
+              residents in urban districts near Lisbon. In cities like Chiang
+              Mai and Barcelona, initiatives to preserve historic districts have
+              been introduced to prevent over-commercialization.
+              <br />
+              <br />
+              As of 2025, over 50 countries have implemented digital nomad visas
+              that require remote workers to meet certain income thresholds and
+              contribute to local social security systems. In addition, local
+              campaigns have called for these initiatives to include a digital
+              nomad tax that would fund local services and ensure that those who
+              benefit from global mobility also contribute to the sustainability
+              of the places they choose to reside in.
+            </p>
+          </div>
+          <div className="intro-image">
+            <img
+              src={viz2}
+              alt="Digital nomad policy visualization"
+              className="intro-viz"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="main-content">
+        <div className="text-container">
+          <p className="body-text">
+            Yet, an ethical nomad economy requires not only policy adjustments
+            but also personal accountability.
             <br />
             <br />
-            In 2023, the Portuguese government imposed a freeze on new
-            short-term rental permits to curb the displacement of local
-            residents in urban districts near Lisbon. In cities like Chiang Mai
-            and Barcelona, initiatives to preserve historic districts have been
-            introduced to prevent over-commercialization.
+            For digital nomads to embrace their role as global citizens, they
+            must acknowledge the disparity in how mobility is experienced by
+            different groups. While their privilege allows for the flexibility
+            to live and work anywhere, many residents from lower-income
+            countries face restrictions on their own movement due to visa
+            barriers, economic limitations, or rising costs. Affordability,
+            while an advantage for digital nomads, can also push out locals when
+            their wages remain stagnant.
             <br />
             <br />
-            As of 2025, over 50 countries have implemented digital nomad visas
-            that require remote workers to meet certain income thresholds and
-            contribute to local social security systems. In addition, local
-            campaigns have called for these initiatives to include a digital
-            nomad tax that would fund local services and ensure that those who
-            benefit from global mobility also contribute to the sustainability
-            of the places they choose to reside in.
+            For nomads, this means supporting local businesses, paying fair
+            prices, and minimizing their footprint to not put a strain on local
+            resources. It also requires dissolving digital nomad bubbles —
+            engaging with local communities rather than creating parallel
+            economies that exist separately from them.
             <br />
             <br />
-            Yet, being reliant on stricter policies deflects the responsibility
-            from the digital nomads, who to an extent, should hold themselves
-            accountable for adopting more sustainable practices.
-            <br />
-            <br />
-            For digital nomads to truly embrace their role as global citizens,
-            they must acknowledge the disparity in how mobility is perceived and
-            experienced by different groups. In doing so, they can take
-            responsibility for their impact and actively work toward adopting
-            more sustainable practices.
-            <br />
-            <br />
-            Ultimately, an ethical nomad economy requires not only policy
-            adjustments but also personal accountability. It's essential that
-            remote workers recognize the significance of affordability—not as a
-            temporary perk, but as the foundation of someone else's home.
-            Policies should not only accommodate digital nomads but also
-            safeguard the well-being of local communities. As digital nomadism
-            evolves, it must shift from a pursuit of individual gain to a more
-            equitable system that considers the long-term consequences of global
-            movement.
-            <br />
-            <br />
-            The responsibility lies not only with governments and cities but
-            with digital nomads themselves. Beyond policies and regulations, it
-            is the duty of those who benefit from global mobility to integrate
-            more sustainable practices into their way of living.
+            For digital nomadism to evolve equitably, it cannot remain an
+            isolated subculture; it must integrate with and uplift the local
+            life of the places it transforms.
           </p>
         </div>
       </div>

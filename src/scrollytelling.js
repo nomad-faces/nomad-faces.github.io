@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import "./scrollytelling.css";
-import background from "./Assets/Illustration_1.JPG";
-import face1 from "./Assets/Icon_1.png"; /* Fix the import path by using relative path */
+import background from "./Assets/Illustration_1.jpg";
+import face1 from "./Assets/Icon_1.png";
 import face2 from "./Assets/Icon_2.png";
 import face3 from "./Assets/Icon_3.png";
 
@@ -46,6 +46,7 @@ const ScrollamaDemo = () => {
           }}
         >
           <h1>The Faces of a Modern Nomad</h1>
+          <p>By Eden Hadar, Sunny Sun, and Bhabna Banerjee</p>
         </div>
         <div className="scroll-section">
           <Scrollama
@@ -77,25 +78,16 @@ const ScrollamaDemo = () => {
               </div>
             </Step>
 
-            {/* <Step data={3}>
-              <div className="context-section">
-                <div className="context-text">
-                  <h1>Context Section</h1>
-                  <p>
-                    The lack of diversity within the digital nomad community has
-                    significant consequences. Wealthier nomads from advanced
-                    economies often have the power to shape local markets and
-                    cultural spaces to fit their preferences, driving up costs
-                    and displacing local identity and communities. Largely
-                    composed of individuals from privileged backgrounds, the
-                    economic benefits of remote work remain concentrated among
-                    those already positioned to succeed. Without greater
-                    inclusion, does this growing movement further reinforce
-                    global inequalities?
-                  </p>
-                </div>
-              </div>
-            </Step> */}
+            <Step data={3}>
+              <div
+                className="context-section"
+                style={{
+                  opacity: 0,
+                  visibility: "hidden",
+                  height: "1%",
+                }}
+              ></div>
+            </Step>
           </Scrollama>
         </div>
       </div>

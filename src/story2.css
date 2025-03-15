@@ -6,24 +6,23 @@ body {
   justify-content: center;
   margin: 0;
   overflow-y: scroll;
-  background-color: #f1f0de;
+  background-color: #f1f0de; /* Changed from #f1f0de to match App.css */
 }
 
 .story2-container {
-  margin: 10%;
+  margin: 0 10% 0 10%;
   position: relative;
-  min-height: 100vh;
-  font-family: "Garamond", serif; /* Set Garamond as the default font */
+  font-family: "Garamond", serif;
   line-height: 1.4;
   color: #000000;
-  text-align: left; /* Ensure all text is left-aligned by default */
+  text-align: left;
   max-width: 1200px;
   padding: 20px;
 }
 
 /* Top section with intro and image */
 .top-section {
-  margin-bottom: 60px;
+  margin-bottom: 20px; /* Reduced from 60px */
   display: flex;
   flex-direction: column;
   align-items: center; /* Center the content horizontally */
@@ -47,12 +46,12 @@ body {
 
 .intro-text {
   flex: 1;
-  padding: 40px;
-  text-align: left; 
+  padding: 10px;
+  text-align: left;
 }
 
 .intro-text p {
-  font-size: 20px; 
+  font-size: 20px;
   line-height: 1.6;
 }
 
@@ -60,31 +59,29 @@ body {
   flex: 1;
   min-width: 300px;
   display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
+  justify-content: center;
+  align-items: center;
 }
 
-/* Styling for the intro visualization image */
 .intro-viz {
-  max-width: 90%; /* Slightly smaller to avoid touching edges */
+  max-width: 90%;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Main content area - styled like Story1 */
 .main-content {
   max-width: 800px;
-  margin: 0 auto;
-  padding: 20px 0;
+  margin: 0 auto; /* Remove any extra vertical margins */
+  padding: 0; /* Reduced padding */
   width: 47vw;
-
 }
 
 .article-text {
-  font-size: 20px; /* Increased from 18px */
+  font-size: 20px;
   line-height: 1.6;
-  margin-bottom: 40px;
+  margin-top: 10px; /* Add small top margin instead of large bottom margin */
+  margin-bottom: 20px; /* Reduced from 40px */
 }
 
 .article-image {
@@ -101,6 +98,8 @@ body {
 .story2-content-wrapper {
   display: flex;
   min-height: 100vh;
+  margin-bottom: 0;
+  padding-bottom: 2rem;
 }
 
 .scroller {
@@ -112,7 +111,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 0 0 20vh; /* Reduced from 80vh to 40vh to make gaps smaller */
+  margin: 0 0 20vh;
   padding: 30px;
   min-height: 30vh;
 }
@@ -134,12 +133,12 @@ body {
   font-size: 40px;
   line-height: 1.1;
   color: #000000;
-  margin-bottom: 30px; /* Keep this consistent */
+  margin-bottom: 30px;
 }
 
 .header-container {
   width: 100%;
-  text-align: center; /* Keep centered */
+  text-align: center;
   margin-top: 5%;
 }
 
@@ -151,7 +150,7 @@ body {
 
 .body-text {
   font-family: "Garamond", serif;
-  font-size: 20px; /* Keep only one font-size declaration */
+  font-size: 20px;
   color: #000000;
-  line-height: 1.5; /* Standardize to 1.5 */
+  line-height: 1.5;
 }

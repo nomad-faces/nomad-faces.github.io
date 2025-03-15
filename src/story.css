@@ -5,7 +5,7 @@ body {
   justify-content: center;
   margin: 0;
   overflow-y: scroll;
-  background-color: #f1f0de;
+  background-color: #f1f0de; /* Changed from #fcfcf5 */
 }
 
 .headline {
@@ -32,6 +32,15 @@ body {
   margin-bottom: 0.1in;
   animation: fade-in 1s ease-in forwards;
 }
+
+.header-illustration {
+  width: 70vw;
+  margin: 0.5in auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .text-container {
   width: 47vw;
   margin: 0 auto 0.5in auto;

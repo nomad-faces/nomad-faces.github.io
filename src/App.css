@@ -1,6 +1,23 @@
+body {
+  background-color: #f1f0de;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
+  font-size: 20px;
+  background-color: #f1f0de;
+  min-height: 100vh; /* Ensure App covers full viewport height */
 }
+
+/* Allow scrollytelling section to override background */
+.scrollytelling-section {
+  background-color: none !important; /* Higher specificity with !important */
+  
+}
+
 @font-face {
   font-family: "Garamond";
   src: url("Fonts/Garamond.ttf") format("truetype");
@@ -56,15 +73,15 @@
 
 /* Bubble Chart Styles */
 .bubble-chart-section {
-  font-family: "adobe-caslon-pro", serif;
   padding: 40px 0;
-  background-color: #fcfcf5;
+  background-color: #f1f0de; /* Changed from #fcfcf5 */
 }
 
 .bubble-chart-title {
   font-size: 40px;
+  font-family: "Instrument", serif;
   margin-bottom: 30px;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 .bubble-chart-buttons {
@@ -104,4 +121,11 @@
   max-width: 900px;
   padding: 20px;
   font-family: "adobe-caslon-pro", serif;
+}
+
+.text-after-chart {
+  width: 47vw;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
 }

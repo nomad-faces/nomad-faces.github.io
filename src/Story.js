@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Scrollama, Step } from "react-scrollama";
 import "./story.css";
+import illustration2 from "./Assets/Illustration_2.jpg";
 
 const ScrollamaDemo = () => {
   const [currentStepIndex, setCurrentStepIndex] = useState(null);
@@ -17,6 +18,11 @@ const ScrollamaDemo = () => {
   return (
     <div>
       <div className="header-container">
+        <img
+          src={illustration2}
+          alt="Story Illustration"
+          className="header-illustration"
+        />
         <h1 className="headline">A New Wave of Gentrification</h1>
       </div>
       <div className="text-container">

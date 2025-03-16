@@ -223,9 +223,6 @@ const Age = () => {
   return (
     <div
       style={{
-        backgroundColor: "white",
-        borderRadius: "10px",
-        boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.05)",
         padding: "20px",
         margin: "20px auto",
         maxWidth: "900px",

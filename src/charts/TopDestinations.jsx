@@ -73,8 +73,8 @@ const NomadMap = () => {
       .append("rect")
       .attr("width", width)
       .attr("height", height)
-      .attr("fill", "rgba(255, 255, 255, 0.5)")
-      .style("backdrop-filter", "blur(3px)");
+      .attr("fill", "#f1f0de")
+      // .style("backdrop-filter", "blur(3px)");
 
     const g = svg.append("g");
 
@@ -268,11 +268,6 @@ const NomadMap = () => {
                   Loading exchange rate...
                 </div>
               )}
-              <p>
-                This is a sample description for {tooltip.country}. Lorem ipsum
-                dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua.
-              </p>
             </div>
           </div>
         )}

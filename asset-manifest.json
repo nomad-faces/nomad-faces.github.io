@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.88420643.css",
+    "main.js": "/static/js/main.3929e417.js",
+    "static/media/Card_2.png": "/static/media/Card_2.e043a6ec933c549a7bd6.png",
+    "static/media/Card_3.png": "/static/media/Card_3.4db22e1724a57f6c48b5.png",
+    "static/media/Card_1.png": "/static/media/Card_1.c595519c844a7b8b9fa3.png",
+    "static/media/Illustration_2.jpg": "/static/media/Illustration_2.2e466ee6ff3bcc333995.jpg",
+    "static/media/Illustration_1.JPG": "/static/media/Illustration_1.cf75314cd8305610015d.JPG",
+    "static/media/Garamond.ttf": "/static/media/Garamond.815805779a78df014494.ttf",
+    "static/media/Garamond-Italic.ttf": "/static/media/Garamond-Italic.06d4c1811f89842c6550.ttf",
+    "static/media/Blackerbold.ttf": "/static/media/Blackerbold.5e4628c950816597c0ba.ttf",
+    "static/media/Miniviz_1.png": "/static/media/Miniviz_1.4257beedc3b70d5097da.png",
+    "static/media/Icon_4.png": "/static/media/Icon_4.f2d87136ef77e48f79d1.png",
+    "static/media/Miniviz_2.png": "/static/media/Miniviz_2.0374e03376a5b97de596.png",
+    "static/media/Icon_2.png": "/static/media/Icon_2.53c59ec092d5eba473d9.png",
+    "static/media/Icon_1.png": "/static/media/Icon_1.c9c2da8e2f1239c2b9e3.png",
+    "static/media/Icon_3.png": "/static/media/Icon_3.60cbdb6c2e09fdae7002.png",
+    "static/media/InstrumentItalic.ttf": "/static/media/InstrumentItalic.9e860caa09c61b51b60c.ttf",
+    "static/media/Instrument.ttf": "/static/media/Instrument.dd726bb91a354547f0d3.ttf",
+    "index.html": "/index.html",
+    "main.88420643.css.map": "/static/css/main.88420643.css.map",
+    "main.3929e417.js.map": "/static/js/main.3929e417.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.88420643.css",
+    "static/js/main.3929e417.js"
+  ]
+}

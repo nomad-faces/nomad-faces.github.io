@@ -54,7 +54,7 @@ function App() {
           </button>
         </div>
 
-        <div className="bubble-chart-container">
+        <div>
           <BubbleChart dataType={dataType} />
         </div>
       </div>

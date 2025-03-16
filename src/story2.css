@@ -6,7 +6,7 @@ body {
   justify-content: center;
   margin: 0;
   overflow-y: scroll;
-  background-color: #f1f0de; /* Changed from #f1f0de to match App.css */
+  background-color: #f1f0de; 
 }
 
 .story2-container {
@@ -20,12 +20,11 @@ body {
   padding: 20px;
 }
 
-/* Top section with intro and image */
 .top-section {
-  margin-bottom: 20px; /* Reduced from 60px */
+  margin-bottom: 20px; 
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the content horizontally */
+  align-items: center;
   width: 100%;
 }
 
@@ -72,16 +71,16 @@ body {
 
 .main-content {
   max-width: 800px;
-  margin: 0 auto; /* Remove any extra vertical margins */
-  padding: 0; /* Reduced padding */
+  margin: 0 auto;
+  padding: 0; 
   width: 47vw;
 }
 
 .article-text {
   font-size: 20px;
   line-height: 1.6;
-  margin-top: 10px; /* Add small top margin instead of large bottom margin */
-  margin-bottom: 20px; /* Reduced from 40px */
+  margin-top: 10px; 
+  margin-bottom: 20px; 
 }
 
 .article-image {

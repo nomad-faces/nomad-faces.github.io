@@ -1,133 +1,46 @@
 body {
   overflow-x: hidden;
-}
-
-.container {
-  margin: 0;
-  padding-bottom: 10px;
-  position: relative;
-  min-height: 100vh;
-}
-
-.container h1 {
-  font-size: 65px;
-}
-
-.scroll-faces {
-  position: relative;
-  height: 100vh;
-}
-
-.face1 {
-  padding: 20px;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: left;
-}
-
-.face2 {
-  padding: 20px;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: right;
-}
-.face3 {
-  padding: 20px;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.-image {
-  max-width: 500px;
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-/* Header styles */
-.stickyHeader,
-.header-normal {
-  width: 100%;
-  padding: 20px;
-  color: white;
-  display: flex;
-  flex-direction: column; /* Ensure column layout */
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
-  will-change: transform;
-}
-
-.stickyHeader {
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  transform: translateY(0);
-  font-size: 200px;
-  margin: 0;
-}
-
-.header-normal {
-  position: relative;
-  z-index: 1;
-  margin-bottom: -50vh;
-  opacity: 0;
-  visibility: hidden;
-  font-size: 200px;
-  margin: 0;
   background-color: #f1f0de;
 }
 
-.stickyHeader h1,
-.header-normal h1 {
-  font-size: 200px;
-  margin: 0 0 20px 0; /* Add bottom margin to create space for p */
-}
-
-.stickyHeader p,
-.header-normal p {
-  font-family: "Garamonditalic", serif;
-  font-size: 24px;
-  margin-top: -50px; /* Reset margin */
-}
-
-/* Scroll section styles */
-
-.scroll-section {
+/* Main wrapper */
+.scrollytelling-wrapper {
   position: relative;
-  z-index: 2;
-  padding-top: 100vh;
-}
-
-.context-section {
-  backdrop-filter: blur(8px);
-  padding: 50px;
-  margin: 20vh 5% 0;
-  border-radius: 8px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Header image */
+.header-image {
+  width: 100%;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+}
+
+/* Title container */
+.title-container {
+  width: 100%;
+  padding: 40px 20px;
+  color: #000;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  z-index: 3;
+  align-items: center;
+  text-align: center;
 }
 
-.context-text h2 {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 16px;
+.title-container h1 {
+  font-size: 60px;
+  margin: 0 0 20px 0;
+  font-family: "Instrument", serif;
 }
 
-.context-text p {
-  font-size: 20px;
-  font-weight: 200;
+.title-container p {
+  font-family: "Garamonditalic", serif;
+  font-size: 24px;
+  margin: 0;
 }

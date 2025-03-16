@@ -18,26 +18,26 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  gap: 0.4in; /* Consistent gap between cards */
+  gap: 0.4in; 
 }
 
 .card {
   border-radius: 10px;
-  margin: 20px 0; /* Reduced horizontal margin */
-  padding: 20px; /* Reduced padding to allow more space for content */
-  width: 28vw; /* Increased from 20vw to make cards bigger */
+  margin: 20px 0; 
+  padding: 20px; 
+  width: 28vw; 
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Prevent image overflow */
+  overflow: hidden; 
 }
 
 /* New image style for cards */
 .card-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures images cover the area without distortion */
+  object-fit: cover; 
   border-radius: 10px;
 }
 
@@ -64,7 +64,6 @@
   right: 10px;
 }
 
-/* Media query to ensure proper sizing on smaller screens */
 @media (max-width: 768px) {
   .card {
     width: 60vw;

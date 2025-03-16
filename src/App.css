@@ -1,23 +1,7 @@
-body {
-  background-color: #f1f0de;
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 .App {
   text-align: center;
-  font-size: 20px;
-  background-color: #f1f0de;
-  min-height: 100vh; /* Ensure App covers full viewport height */
+  font-size: 20px; 
 }
-
-/* Allow scrollytelling section to override background */
-.scrollytelling-section {
-  background-color: none !important; /* Higher specificity with !important */
-  
-}
-
 @font-face {
   font-family: "Garamond";
   src: url("Fonts/Garamond.ttf") format("truetype");
@@ -74,7 +58,8 @@ body {
 /* Bubble Chart Styles */
 .bubble-chart-section {
   padding: 40px 0;
-  background-color: #f1f0de; /* Changed from #fcfcf5 */
+  background-color: #f1f0de;
+
 }
 
 .bubble-chart-title {

@@ -1,6 +1,6 @@
 import React from "react";
 import "./scrollytelling.css";
-import background from "./Assets/Illustration_1.JPG";
+import background from "./Assets/Illustration_1.jpg";
 
 const ScrollamaDemo = () => {
   return (

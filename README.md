@@ -1,6 +1,8 @@
 # The Faces of a Modern Nomad
  
-Link to live story: https://nomad-faces.github.io/
+By Eden Hadar, Sunny Sun, and Bhabna Banarjee
+
+**Link to live story: https://nomad-faces.github.io/** 
 
 
 
